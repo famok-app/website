@@ -220,7 +220,7 @@ dl {
   display: block;
 }
 
-.hero h1 span + span {
+.hero h1 span:last-child {
   color: var(--muted);
 }
 
