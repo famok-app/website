@@ -1,0 +1,23 @@
+#!/bin/sh
+# FamOK guard (copied from Fidelant) (CLAUDE.md "Boundaries", "Git"), shared by pre-commit and commit-msg. Reads text on
+# stdin and refuses it if it holds mesh addresses, token shapes or private keys, or any pattern in the
+# local, uncommitted ~/.config/famok/deny-patterns (one extended regex per line; it names his
+# subnets, public IPs, domains and hosts so this repo never has to). Stricter than Firetower's: part of
+# this repo will be public, so a missing deny list refuses the commit instead of warning.
+# Usage: <text> | .githooks/deny-check "<what is being checked>"
+pat='(^|[^0-9])100\.(6[4-9]|[7-9][0-9]|1[01][0-9]|12[0-7])\.[0-9]{1,3}\.[0-9]{1,3}|tk_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|sk-ant-[A-Za-z0-9_-]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY'
+local="$HOME/.config/famok/deny-patterns"
+if [ ! -s "$local" ]; then
+  echo "deny-check: blocked. $local is missing or empty, so his names cannot be checked." >&2
+  echo "deny-check: restore it before committing (see CLAUDE.md, Git)." >&2
+  exit 1
+fi
+extra=$(grep -v -e '^[[:space:]]*$' -e '^#' "$local" | paste -sd'|' -)
+[ -n "$extra" ] && pat="$pat|$extra"
+hits=$(grep -n -i -E "$pat")
+if [ -n "$hits" ]; then
+  echo "deny-check: blocked. Internal names or secrets in the $1:" >&2
+  echo "$hits" | cut -c1-160 >&2
+  exit 1
+fi
+exit 0

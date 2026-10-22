@@ -1,0 +1,4 @@
+#!/bin/sh
+# Checks the commit message: history travels with the public split. See .githooks/deny-check.
+dir=$(dirname "$0")
+grep -v '^#' "$1" | sh "$dir/deny-check" "commit message"

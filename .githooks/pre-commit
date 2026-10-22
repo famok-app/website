@@ -1,0 +1,7 @@
+#!/bin/sh
+# Checks every added line and every new file name in the staged changes. See .githooks/deny-check.
+dir=$(dirname "$0")
+{
+  git diff --cached -U0 --no-color | grep '^+' | grep -v '^+++'
+  git diff --cached --name-only --diff-filter=AR
+} | sh "$dir/deny-check" "staged changes"
