@@ -5,9 +5,11 @@ The company website of FAMOK LLC, served at https://famok.app by Cloudflare Page
 ## What it is
 
 Four static pages (Home, Contact, Privacy, Terms) and a 404 page. Plain HTML and one style sheet:
-no build step, no scripts, no web fonts, no analytics, nothing fetched from anyone but famok.app.
+no build step, no scripts, no analytics, nothing fetched from anyone but famok.app. Two fonts
+(Newsreader and Figtree, SIL Open Font License) are served from `site/fonts/`.
 
-The look is a neutral placeholder. It will be replaced when the product's brand is chosen.
+The look is night and the lights of homes, for the motto: safety, privacy, trust. The hero's hills
+and lights are inline SVG; their one animation is CSS and stops for reduced motion.
 
 ## Layout
 
