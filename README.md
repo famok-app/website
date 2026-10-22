@@ -8,7 +8,7 @@ Four static pages (Home, Contact, Privacy, Terms) and a 404 page. Plain HTML and
 no build step, no scripts, no analytics, nothing fetched from anyone but famok.app. Two fonts
 (Newsreader and Figtree, SIL Open Font License) are served from `site/fonts/`.
 
-The look is night and the lights of homes, for the motto: safety, privacy, trust. The hero's hills
+The look is night and the lights of homes, a family looking out for one another. The hero's hills
 and lights are inline SVG; their one animation is CSS and stops for reduced motion.
 
 ## Layout
