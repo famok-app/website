@@ -37,7 +37,8 @@ Then open http://localhost:8080. The `_headers` file only takes effect on Cloudf
 ## Deploy
 
 Cloudflare Pages, connected to this repository: production branch `main`, no build command, build
-output directory `site`. Every push to `main` deploys.
+output directory `site`. Every push to `main` deploys. First-time setup and the zone settings that keep
+the privacy page true: [DEPLOY.md](DEPLOY.md).
 
 ## Commit guard
 
