@@ -28,7 +28,7 @@
   --lamp: #ffd08a;
   --ridge-far: #151e2b;
   --ridge-mid: #101823;
-  --ridge-near: #0a1018;
+  --ridge-near: #0d131c;
   --serif: "Newsreader", ui-serif, Georgia, serif;
   --sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
@@ -307,7 +307,6 @@ dl {
 /* Safety, privacy, trust */
 .motto {
   padding: clamp(4rem, 3rem + 5vw, 7rem) 0;
-  border-top: 1px solid var(--line);
 }
 
 .motto ul {
