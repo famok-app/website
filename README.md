@@ -25,6 +25,9 @@ and lights are inline SVG; their one animation is CSS and stops for reduced moti
   Content Security Policy in `site/_headers` blocks them anyway; keep it that way.
 - If the privacy page's promises would stop being true, change the page in the same commit.
 - Every page carries the same header and footer; a change to one is a change to all five.
+- When `style.css` changes, raise the `?v=` number in all five pages' stylesheet link. Cloudflare tells
+  browsers to keep the stylesheet for 4 hours, so without a new number returning visitors see the new
+  pages with the old styles (seen 2026-10-22).
 - Wrap email addresses in `<!--email_off-->` ... `<!--/email_off-->` so Cloudflare never injects
   its email-obfuscation script.
 
