@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    rect { fill: #3a5a78; }
-    path { fill: #fafaf7; }
-    @media (prefers-color-scheme: dark) {
-      rect { fill: #9db8d3; }
-      path { fill: #16181b; }
-    }
-  </style>
-  <rect width="32" height="32" rx="7"/>
-  <path d="M11 8h11v3.2h-7.4v3.6h6.4V18h-6.4v6H11z"/>
+  <rect width="32" height="32" rx="7" fill="#0d131c"/>
+  <g fill="none" stroke="#efe9dd" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6.5" y="6.5" width="19" height="19" rx="3.2"/>
+    <path d="M16 6.5v19M6.5 16h19"/>
+  </g>
+  <rect x="18" y="18" width="5.8" height="5.8" rx="1.2" fill="#ffd08a"/>
 </svg>
