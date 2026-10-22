@@ -58,3 +58,13 @@ curl -s https://famok.app/ | grep -ic "<script"
 ```
 
 Expect: `HTTP/2 200`, a `content-security-policy` line, **no** `set-cookie` line, and `0` scripts.
+
+Three checks curl cannot make (each one was missed once, 2026-10-22):
+
+- **Look at it before pushing.** Screenshot every changed page at desktop width and at 390 px, and
+  read the screenshots. A page that passes curl can still look careless.
+- **Look at it as a returning visitor.** Cloudflare tells browsers to keep `style.css` for 4 hours;
+  a stylesheet change without a new `?v=` number shows returning visitors the new pages unstyled.
+  After pushing, open the site on a phone that has visited it before.
+- **If any step regenerates a page, diff it against the last commit before pushing**, and confirm
+  every approved line is still there word for word.
